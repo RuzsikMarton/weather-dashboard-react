@@ -40,7 +40,7 @@
 @layer components {
 
     .title {
-        @apply flex items-center p-5;
+        @apply flex items-center ;
 
         & h1 {
             @apply text-gray-300

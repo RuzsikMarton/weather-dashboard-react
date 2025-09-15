@@ -1,13 +1,8 @@
 import React from "react";
+import { wmoCode } from "../../public/utils";
 
-const WeatherCard = ({ weather }) => {
-  const { city } = weather;
-  const temperature = 20;
-  const wind = 10;
-  const humidity = 60;
-  const description = "Moderate Rain";
-  const icon = "img/clear@4x.png";
-  const date = "2025-09-15";
+const WeatherCard = ({ weather, weather: {relative_humidity_2m, city, temperature_2m, wind_speed_10m, weather_code, time} }) => {
+  const { description, icon } = wmoCode(weather_code);
   console.log(city);
   return (
     <div className="weather-card">
@@ -15,9 +10,9 @@ const WeatherCard = ({ weather }) => {
         <div className="weather-left">
           <div>
             <h2>{city}</h2>
-            <p>{date}</p>
+            <p>{time}</p>
           </div>
-          <h2 className="temperature">{temperature}°C</h2>
+          <h2 className="temperature">{temperature_2m.toFixed()}°C</h2>
         </div>
         <div className="weather-right">
           <div className="flex flex-col items-center gap-3">
@@ -25,8 +20,8 @@ const WeatherCard = ({ weather }) => {
             <h3 className="text-2xl">{description}</h3>
           </div>
           <div className="flex flex-col md:flex-row lg:flex-row gap-2 md:gap-2 lg:gap-10">
-            <p>Wind: {wind}km/h</p>
-            <p>Humidity: {humidity}%</p>
+            <p>Wind: {wind_speed_10m}km/h</p>
+            <p>Humidity: {relative_humidity_2m}%</p>
           </div>
         </div>
       </div>
