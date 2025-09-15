@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import './App.css'
+import { Routes , Route } from 'react-router-dom'
+import Home from './components/Home'
+import Forecast from './components/Forecast'
 
 function App() {
 
   return (
-    <>
-      <h1>Weather Dashboard</h1>
-    </>
+    <main>
+      <Routes> 
+            <Route path='/' element={<Home />}/>
+            <Route path='/forecast/:city' element={<Forecast />} />
+        </Routes>
+    </main>
   )
 }
 

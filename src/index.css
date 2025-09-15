@@ -1,1 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 @import "tailwindcss";
+
+@theme {
+    --color-primary: #030014;
+
+    --font-dm-sans: DM Sans, sans-serif;
+}
+
+@layer base {
+    body {
+        font-family: "DM Sans", serif;
+        font-optical-sizing: auto;
+        background: #030014
+    }
+
+    ;
+
+    main {
+        @apply min-h-screen relative bg-primary;
+    }
+
+    ;
+
+    h1 {
+        @apply text-5xl text-white mx-auto font-bold leading-tight tracking-[-1%] sm:text-[64px] sm:leading-[76px]
+    }
+
+    ;
+
+    h2 {
+        @apply text-2xl text-white sm:text-3xl font-bold
+    }
+
+    ;
+}
+
+@layer components {
+
+    .title {
+        @apply flex items-center p-5;
+
+        & h1 {
+            @apply text-gray-300
+        }
+
+        ;
+    }
+
+    .wrapper {
+        @apply mx-auto px-5 py-12
+    }
+
+    .weather-list {
+        @apply space-y-9 ;
+
+        & ul {
+            @apply grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5
+        }
+    }
+
+    .weather-card {
+        @apply bg-gray-900 rounded-3xl p-5 text-white;
+
+        & p {
+            @apply text-sm
+        }
+
+        & .card-layout {
+            @apply flex flex-row justify-between p-5;
+
+            & .weather-left {
+                @apply flex flex-col justify-between font-medium;
+
+                & .temperature {
+                    @apply text-5xl font-bold
+                }
+            }
+
+            & .weather-right {
+                @apply flex flex-col justify-between gap-10;
+            }
+
+        
+        }
+    }
+}
