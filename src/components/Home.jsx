@@ -21,14 +21,15 @@ const Home = () => {
       const labeled = data.map((item, i) => ({
         city: cities[i],
         ...item.current,
+        latitude: item.latitude,
+        longitude: item.longitude,
       }));
       setWeatherInfo(labeled);
-
     } catch (error) {
       console.error("Error fetching weather data:", error);
       setErrorMessage("Failed to fetch weather data.");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
@@ -49,11 +50,12 @@ const Home = () => {
         ) : (
           <ul>
             {weatherInfo.map((weather) => {
-              console.log(weather);
               return (
-                <Link to={"/"}>
-                  <WeatherCard key={weather.city} weather={weather} />
-                </Link>
+                <li key={weather.city}>
+                  <Link to={`/forecast/${weather.latitude}/${weather.longitude}/${weather.city}`}>
+                    <WeatherCard weather={weather} />
+                  </Link>
+                </li>
               );
             })}
           </ul>

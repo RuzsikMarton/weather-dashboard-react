@@ -3,7 +3,6 @@ import { wmoCode } from "../../public/utils";
 
 const WeatherCard = ({ weather, weather: {relative_humidity_2m, city, temperature_2m, wind_speed_10m, weather_code, time} }) => {
   const { description, icon } = wmoCode(weather_code);
-  console.log(city);
   return (
     <div className="weather-card">
       <div className="card-layout">
