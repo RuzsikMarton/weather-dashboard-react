@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <div className="wrapper">
       <div className="title">
-        <h1>Weather Dashboard</h1>
+        <h1 className="mb-3">Weather Dashboard</h1>
       </div>
       <div className="weather-list">
         {isLoading ? (

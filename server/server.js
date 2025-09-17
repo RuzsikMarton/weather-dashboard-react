@@ -28,7 +28,7 @@ app.get("/api/forecast", async (req, res) => {
   const longitude = req.query.longitude || {};
   try {
     const forecast = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}1&daily=weather_code,temperature_2m_max,temperature_2m_min&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`
     );
     if (!forecast.ok) throw new Error(`Open-Meteo HTTP ${forecast.status}`);
     const data = await forecast.json();

@@ -69,7 +69,7 @@
         }
 
         & .card-layout {
-            @apply flex flex-row justify-between p-5;
+            @apply flex flex-row flex-nowrap justify-between p-5;
 
             & .weather-left {
                 @apply flex flex-col justify-between font-medium;
@@ -84,6 +84,34 @@
             }
 
         
+        }
+    }
+
+    .daily-card {
+        @apply bg-gray-900 rounded-3xl text-white px-10 pt-10 pb-5;
+
+        & h3 {
+            @apply text-lg font-bold text-gray-500 mb-3;
+        }
+
+        & ul{
+            @apply space-y-5 divide-y divide-gray-700;
+        }
+    }
+
+    .daily-row {
+        @apply /*grid grid-cols-[1fr_1fr_8rem_8rem]*/ items-center gap-3 px-1 md:px-5 lg:px-10 py-2 text-xl flex flex-row justify-between hover:bg-gray-700 hover:rounded-lg rounded-none;
+
+        & li {
+            @apply border
+        }
+
+        & p {
+            @apply text-2xl font-semibold text-shadow-lg/30; 
+        }
+
+        & span {
+            @apply md:mx-5 lg:mx-10;
         }
     }
 }

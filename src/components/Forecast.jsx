@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { wmoCode } from "../assets/utils";
+import WeatherCard from "./WeatherCard";
+import DailyWeatherCard from "./DailyWeatherCard";
 
 const Forecast = () => {
   const { latitude, longitude, city } = useParams();
@@ -9,6 +12,10 @@ const Forecast = () => {
   const [dailyWeather, setDailyWeather] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const wmo = currentWeather
+    ? wmoCode(currentWeather.weather_code)
+    : { description: "...", icon: "" };
 
   const fetchForecast = async () => {
     setIsLoading(true);
@@ -35,21 +42,23 @@ const Forecast = () => {
       return;
     }
     fetchForecast();
-  }, []);
+  }, [latitude, longitude, navigate]);
+
+  console.log(dailyWeather)
 
   return (
-    <div>
+    <div className="wrapper flex flex-col">
+      <h1 className="mb-5">{city}</h1>
       {isLoading ? (
         <h2 className="text-sky-600">Loading...</h2>
       ) : errorMessage ? (
         <h2 className="text-red-500">{errorMessage}</h2>
-      ) : (
-        <div>
-          <h1>{city}</h1>
-          <div>Current weather</div>
-          <div>Forecast</div>
+      ) : !isLoading && !errorMessage && currentWeather ? (
+        <div className="grid grid-rows-[auto-auto] gap-5">
+          <WeatherCard weather={currentWeather}></WeatherCard>
+          <DailyWeatherCard dailyWeather={dailyWeather} />
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
