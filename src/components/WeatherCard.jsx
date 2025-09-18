@@ -1,14 +1,14 @@
 import React from "react";
 import { wmoCode } from "../assets/utils";
 
-const WeatherCard = ({ weather: {relative_humidity_2m, city, temperature_2m, wind_speed_10m, weather_code, time} }) => {
+const WeatherCard = ({ weather: {relative_humidity_2m, name, country_code, temperature_2m, wind_speed_10m, weather_code, time} }) => {
   const { description, icon } = wmoCode(weather_code);
   return (
     <div className="weather-card">
       <div className="card-layout">
         <div className="weather-left">
           <div>
-            <h2>{city || "Current Weather"}</h2>
+            <h2>{name && country_code ? `${name}, ${country_code}` : "Current Weather"}</h2>
             <p>{time}</p>
           </div>
           <h2 className="temperature">{temperature_2m.toFixed()}°C</h2>

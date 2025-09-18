@@ -4,11 +4,6 @@ import { wmoCode } from "../assets/utils";
 const DailyWeatherCard = ({
   dailyWeather: { temperature_2m_max, temperature_2m_min, time, weather_code },
 }) => {
-  const dateStr = time[0];
-  const date = new Date(dateStr);
-  const day = date.toLocaleDateString("en-US", { weekday: "long" });
-
-  console.log(day);
   return (
     <div className="daily-card">
       <h3>7-day forecast</h3>

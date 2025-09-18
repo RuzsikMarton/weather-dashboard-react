@@ -37,14 +37,14 @@ const Forecast = () => {
   };
 
   useEffect(() => {
-    if (!latitude || !longitude) {
+    const latN = Number(latitude);
+    const lonN = Number(longitude);
+    if (!Number.isFinite(latN) || !Number.isFinite(lonN)) {
       navigate("/", { replace: true });
       return;
     }
     fetchForecast();
   }, [latitude, longitude, navigate]);
-
-  console.log(dailyWeather)
 
   return (
     <div className="wrapper flex flex-col">

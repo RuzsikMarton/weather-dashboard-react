@@ -40,24 +40,40 @@
 @layer components {
 
     .title {
-        @apply flex items-center ;
+        @apply flex items-center;
 
         & h1 {
-            @apply text-gray-300
+            @apply text-gray-300;
         }
 
         ;
     }
 
     .wrapper {
-        @apply mx-auto px-5 py-12
+        @apply mx-auto px-5 py-12;
+    }
+
+    .search {
+        @apply bg-gray-100/15 rounded-lg px-4 py-3 w-full mx-auto max-w-3xl my-10;
+
+        & div {
+            @apply relative flex items-center;
+        }
+
+        & img {
+            @apply absolute left-2 h-5 w-5 fill-gray-200;
+        }
+
+        & input {
+            @apply w-full bg-transparent py-1 pl-10 sm:pr-10 text-gray-200 outline-hidden
+        }
     }
 
     .weather-list {
-        @apply space-y-9 ;
+        @apply space-y-9;
 
         & ul {
-            @apply grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5
+            @apply grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5;
         }
     }
 
@@ -65,7 +81,7 @@
         @apply bg-gray-900 rounded-3xl p-5 text-white;
 
         & p {
-            @apply text-sm
+            @apply text-sm;
         }
 
         & .card-layout {
@@ -75,7 +91,7 @@
                 @apply flex flex-col justify-between font-medium;
 
                 & .temperature {
-                    @apply text-5xl font-bold
+                    @apply text-5xl font-bold;
                 }
             }
 
@@ -83,7 +99,7 @@
                 @apply flex flex-col justify-between gap-10;
             }
 
-        
+
         }
     }
 
@@ -94,20 +110,22 @@
             @apply text-lg font-bold text-gray-500 mb-3;
         }
 
-        & ul{
-            @apply space-y-5 divide-y divide-gray-700;
+        & ul {
+            @apply  divide-y divide-gray-700;
         }
     }
 
     .daily-row {
-        @apply /*grid grid-cols-[1fr_1fr_8rem_8rem]*/ items-center gap-3 px-1 md:px-5 lg:px-10 py-2 text-xl flex flex-row justify-between hover:bg-gray-700 hover:rounded-lg rounded-none;
+        @apply
+        /*grid grid-cols-[1fr_1fr_8rem_8rem]*/
+        items-center gap-3 px-1 md:px-5 lg:px-10 py-4 text-xl flex flex-row justify-between hover:bg-gray-700 hover:rounded-lg rounded-none;
 
         & li {
-            @apply border
+            @apply border;
         }
 
         & p {
-            @apply text-2xl font-semibold text-shadow-lg/30; 
+            @apply text-2xl font-semibold text-shadow-lg/30;
         }
 
         & span {
